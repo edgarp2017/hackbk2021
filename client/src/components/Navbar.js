@@ -24,6 +24,12 @@ const NavBar = () => {
                         </div>
                     </Link>
                     <div className="NavBar-l-color">|</div>
+                    <Link to="/Add">
+                        <div className="NavBar-l-color p-2">
+                            Add Location
+                        </div>
+                    </Link>
+                    <div className="NavBar-l-color">|</div>
                     <Link to="/Upload">
                         <div className="NavBar-l-color p-2">
                             Upload
