@@ -11,6 +11,7 @@ const AddLocation = () => {
   const [name, setName] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [latitude, setLatitude] = useState(null);
+  const history = useHistory();
 
   const handleChange = (input) => (e) => {
     if (input === "name") {
@@ -32,6 +33,7 @@ const AddLocation = () => {
     }
     else {
       console.log("Good")
+      history.push("/Map");
     }
   }
 
