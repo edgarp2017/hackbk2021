@@ -10,11 +10,11 @@ import Button from 'react-bootstrap/Button'
 import NavBar from '../Navbar.js'
 
 import upload from '../../images/upload.png'
+import * as API from '../../util/api.js'
 
 const Upload = () => {
   const [file, setFile] = useState(null);
-  const [search, setSearch] = useState(null);
-  const history = useHistory();
+  const [item, setItem] = useState(null);
 
 
   const handleFile = (e) => {
@@ -22,11 +22,11 @@ const Upload = () => {
   };
 
   const handleText = (e) => {
-    setSearch(e.target.value);
+    setItem(e.target.value);
   }
 
   const handleSubmit = (e) => {
-    if (file === null & search === null) {
+    if (file === null & item === null) {
       e.preventDefault();
       e.stopPropagation();
     }
@@ -37,12 +37,22 @@ const Upload = () => {
         console.log("FILE Request")
       }
       else {
-        console.log("TEXT Request")
-        console.log(search)
+        console.log(item)
+        API.resultText(item).then((result) => {
+          console.log(result)
+          if (result.status === 200) {
+            if (result.data.success === true){
+              alert(`${item} belongs in the ${result.data.data}. Find some using our locator!`)
+            }
+            else {
+              alert(`Error with ${item} could not determine.`)
+            }
+  
+          }
+        }).catch((error) => {
+          console.log(error)
+        })
       }
-      // localStorage.setItem('hackbk-result', result)
-      console.log(localStorage)
-      history.push("/Result");
     }
   };
 

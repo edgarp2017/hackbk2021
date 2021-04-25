@@ -84,14 +84,27 @@ def addLocation():
             return jsonify(success=False, data=[])
        
 
-@app.route('/api/result', methods = ['GET'])
-def getResult():
+@app.route('/api/img', methods = ['GET'])
+def getResultImage():
     image = request.files['image']
 
 
     return jsonify(success=False, data=[])
 
+@app.route('/api/txt/<string:item>', methods = ['GET'])
+def getResultText(item):
+    item = item.lower()
+    
+    lookup = {
+        'glass bottle': 'glass',
+        'pants': 'clothes',
+        'shirt': 'clothes'
+    }
 
+    if item in lookup: 
+        return jsonify(success=True, data=lookup[item])
+
+    return jsonify(success=False)
 
 
 if __name__ == '__main__':

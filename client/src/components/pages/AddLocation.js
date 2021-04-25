@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 import NavBar from '../Navbar.js'
+import * as API from '../../util/api.js'
 
 const AddLocation = () => {
   const [name, setName] = useState(null);
@@ -32,8 +33,16 @@ const AddLocation = () => {
       alert("Fill out all fields!")
     }
     else {
-      console.log("Good")
-      history.push("/Map");
+      API.addLocation({
+        name,
+        longitude,
+        latitude
+      }).then((result) => {
+        if (result.status === 200) {
+          history.push("/Map");
+          alert("Location was added")
+        }
+      })
     }
   }
 

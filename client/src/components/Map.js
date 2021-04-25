@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 // API Call for locations go here
+import * as API from '../util/api.js'
 
 const Map = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     // Update the document title using the browser API
-    const result = [{
-      id: 1,
-      name: "Test",
-      lati: 40.7555,
-      longi: -73.9739
-    }]
-    setData(result)
+    API.getLocations().then((result) => {
+      if (result.status === 200) {
+        setData(result.data.data)
+      }
+    }).catch((error) => {
+      console.log(error)
+    })
   }, []);
 
   return (
@@ -27,7 +28,7 @@ const Map = () => {
       {
         data === null ? <div /> :
         data.map(location => (
-          <Marker position={[location.lati, location.longi]} key={location.id}>
+          <Marker position={[location.longitude, location.latitude]} key={location.id}>
             <Popup>
               <h2>
                 {`${location.name}`}
