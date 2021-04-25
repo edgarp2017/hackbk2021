@@ -9,7 +9,7 @@ const NavBar = () => {
     <Navbar collapseOnSelect expand="lg" bg="light" className="justify-content-between">
         <Navbar.Brand>
             <Link to="/"> 
-                App Name
+                ecoSaver
             </Link> 
 
         </Navbar.Brand>

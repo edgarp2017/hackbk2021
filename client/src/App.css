@@ -8,8 +8,8 @@
 }
 
 .setting-button-color {
-  background: linear-gradient(91.29deg, #DC2323 3.02%, rgba(244, 121, 121, 0.83) 100%);
-  color: #FFFFFF;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(31,121,9,1) 35%, rgba(0,212,255,1) 100%);
   padding: 12px;
   border: none;
   width: 20%;
@@ -22,7 +22,7 @@
 }
 
 .setting-button-color:hover {
-  background:#DC2323;
+  background: rgba(0,212,255,1);
 }
 
 .image-upload>input {

@@ -75,9 +75,9 @@ const Upload = () => {
 
           <Form.Group action="/upload" method="POST" enctype="multipart/form-data">
             <Form.Row>
-              <Col md={3} className="mx-auto">
-                <Form.Label>Example textarea</Form.Label>
-                <Form.Control as="textarea" rows={3} onChange={handleText} />
+              <Col md={3} className="mx-auto mt-5">
+                <Form.Label>Enter the item you need help with:</Form.Label>
+                <Form.Control as="textarea" rows={1} onChange={handleText} />
               </Col>
             </Form.Row>
           </Form.Group>

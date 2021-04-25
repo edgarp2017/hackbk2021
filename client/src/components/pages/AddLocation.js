@@ -50,13 +50,24 @@ const AddLocation = () => {
     <div>
       <NavBar />
       <Form onSubmit={handleSubmit}>
-        
-
-        <Form.Group action="/Add" method="POST" enctype="multipart/form-data">
+        <Form.Group action="/Add" method="POST" enctype="multipart/form-data" className="mt-5 pt-5">
           <Form.Row>
             <Col md={3} className="mx-auto">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={handleChange("name")} />
+              <Form.Label>Select the type of bin:</Form.Label>
+              <Form.Control as="select" onChange={handleChange("name")}> 
+                <option>battery</option>
+                <option>biological</option>
+                <option>brown glass</option>
+                <option>cardboard</option>
+                <option>clothes</option>
+                <option>green glass</option>
+                <option>metal</option>
+                <option>paper</option>
+                <option>plastic</option>
+                <option>shoes</option>
+                <option>trash</option>
+                <option>white glass</option>
+              </Form.Control>
             </Col>
           </Form.Row>
         </Form.Group>
@@ -64,8 +75,8 @@ const AddLocation = () => {
         <Form.Group action="/Add" method="POST" enctype="multipart/form-data">
           <Form.Row>
             <Col md={3} className="mx-auto">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={handleChange("longitude")} />
+              <Form.Label>Enter the longitude of the bin:</Form.Label>
+              <Form.Control as="textarea" rows={1} onChange={handleChange("longitude")} />
             </Col>
           </Form.Row>
         </Form.Group>
@@ -73,14 +84,14 @@ const AddLocation = () => {
         <Form.Group action="/Add" method="POST" enctype="multipart/form-data">
           <Form.Row>
             <Col md={3} className="mx-auto">
-              <Form.Label>Example textarea</Form.Label>
-              <Form.Control as="textarea" rows={3} onChange={handleChange("latitude")} />
+              <Form.Label>Enter the latitude of the bin:</Form.Label>
+              <Form.Control as="textarea" rows={1} onChange={handleChange("latitude")} />
             </Col>
           </Form.Row>
         </Form.Group>
 
         <center className="mb-4">
-          <Button bsPrefix="setting-button-color" onClick={handleSubmit}>Submit</Button>
+          <Button bsPrefix="setting-button-color" variant="success" onClick={handleSubmit}>Submit</Button>
         </center>
       </Form>
     </div>
