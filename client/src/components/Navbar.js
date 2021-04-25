@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form'
 
 const NavBar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" className="justify-content-between">
+    <Navbar collapseOnSelect expand="lg" bg="light" className="justify-content-between bg-dark">
         <Navbar.Brand>
             <Link to="/"> 
                 ecoSaver

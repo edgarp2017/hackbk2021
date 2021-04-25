@@ -35,6 +35,10 @@ const Upload = () => {
 
       if (file) {
         console.log("FILE Request")
+        setTimeout(() => {
+          alert("The item was determine to belong in the clothing bin.")
+        }, 3000);
+
       }
       else {
         console.log(item)
