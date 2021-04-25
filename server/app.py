@@ -84,12 +84,27 @@ def addLocation():
             return jsonify(success=False, data=[])
        
 
-@app.route('/api/result', methods = ['GET'])
-def getResult():
-    image = request.files['image']
+@app.route('/api/img', methods = ['GET'])
+def getResultImage():
+    try:
+        if request.files['image']:
+            image = request.files['image']
+            print("img")
+            return jsonify(success=True, data=[])
 
+    except Exception as Error:
+        return jsonify(success=False, data="Error")
 
-    return jsonify(success=False, data=[])
+@app.route('/api/txt', methods = ['GET'])
+def getResultText():
+    try:
+        if request.json['text']:
+            text = request.json['text']
+            print("txt")
+            return jsonify(success=True, data=[])
+
+    except Exception as Error:
+        return jsonify(success=False, data="Error")
 
 
 
